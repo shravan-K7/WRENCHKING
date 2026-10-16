@@ -65,13 +65,12 @@ if (isset($_SESSION['c_id'])) {
     <!-- Page Header End -->
 
     <!-- Service Start -->
-    <div class="service py-5">
-        <div class="d-flex justify-content-end me-2">
-            <form method="GET">
-                <div class="d-flex align-items-center">
-                    <label for="sp_id" class="form-label text-white m-0 bg-danger px-3 py-3 rounded">Select Service
-                        Provider</label>
-                    <select name="sp_id" id="sp_id" class="form-select" style="height: 55px; width: auto;"
+    <div class="service py-4">
+        <div class="container">
+            <div class="d-flex justify-content-end mb-3">
+                <form method="GET" class="d-flex flex-column flex-sm-row align-items-stretch align-items-sm-center gap-2 w-100 justify-content-sm-end">
+                    <label for="sp_id" class="form-label text-white m-0 bg-danger px-3 py-2 rounded text-center text-nowrap">Select Service Provider</label>
+                    <select name="sp_id" id="sp_id" class="form-select" style="height: 48px; width: auto; min-width: 200px;"
                         onchange="this.form.submit()">
                         <option hidden>Select Garage</option>
                         <?php
@@ -91,10 +90,8 @@ if (isset($_SESSION['c_id'])) {
                         }
                         ?>
                     </select>
-                </div>
-            </form>
-        </div>
-        <div class="container">
+                </form>
+            </div>
             <br>
 
             <div class="row g-4 wow fadeInUp" data-wow-delay="0.3s">

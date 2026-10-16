@@ -18,6 +18,7 @@ if (isset($_POST['c_name'], $_POST['c_email'], $_POST['c_phone']) && isset($_SES
 
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Updating Profile...</title>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <style>

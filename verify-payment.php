@@ -1,10 +1,11 @@
 <?php
-require __DIR__ . '/vendor/autoload.php'; // Ensure this file exists
+require __DIR__ . '/vendor/autoload.php';
+require_once __DIR__ . '/config.php';
 
 use Razorpay\Api\Api;
 
-$keyId = "rzp_test_6oiNOELMljBTJY"; // Replace with your Razorpay Test Key
-$keySecret = "1POa1CGzwRgelSDxLzbnbOL0"; // Replace with your Razorpay Test Secret
+$keyId = RAZORPAY_KEY_ID;
+$keySecret = RAZORPAY_KEY_SECRET;
 
 $api = new Api($keyId, $keySecret);
 

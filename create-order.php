@@ -27,8 +27,8 @@ if (isset($_SESSION['c_id'])) {
     $amountInPaise = $grandTotal * 100;
 
     // Step 2: Razorpay credentials
-    $keyId = "rzp_test_6oiNOELMljBTJY";      // ✅ Replace with your real key for production
-    $keySecret = "1POa1CGzwRgelSDxLzbnbOL0"; // ✅ Replace with your real secret
+    $keyId = RAZORPAY_KEY_ID;
+    $keySecret = RAZORPAY_KEY_SECRET;
 
     $api = new Api($keyId, $keySecret);
 

@@ -1,0 +1,42 @@
+# Dependencies
+/vendor/
+composer.phar
+
+# Environment & Credentials (NEVER commit these)
+.env
+.env.local
+.env.*.local
+*.env
+!.env.example
+
+# Temporary / Cache / Logs
+*.log
+error_log
+tmp/
+temp/
+cache/
+*.tmp
+
+# Unit testing & Reports
+phpunit.xml
+reports/
+.phpunit.result.cache
+
+# IDE & Editor files
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini

@@ -14,59 +14,53 @@
 
     <style>
         body {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             background-color: #F5F5F5;
             margin: 0;
+            padding: 20px 15px;
         }
 
         .login-container {
             display: flex;
-            width: 1000px;
-            height: 600px;
+            width: 100%;
+            max-width: 950px;
+            min-height: 580px;
             background: #fff;
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+            margin: auto;
         }
 
         .left-panel {
             background-color: #d81324;
             color: white;
-            width: 50%;
-            padding: 60px;
+            width: 45%;
+            padding: 40px 30px;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
-            position: relative;
         }
 
         .left-panel img {
-            position: absolute;
-            top: 10px;
-            left: 22%;
-            transform: translateX(-50%);
-            max-width: 160px;
+            max-width: 170px;
             height: auto;
-            max-height: 100px;
+            margin-bottom: 25px;
         }
 
         .profile-icon {
-            font-size: 80px;
-            margin-top: 100px;
-            margin-bottom: 20px;
+            font-size: 70px;
+            margin-bottom: 15px;
         }
 
         .right-panel {
-            width: 65%;
-            padding: 60px;
+            width: 55%;
+            padding: 40px 30px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -76,15 +70,15 @@
 
         .form-control {
             border-radius: 25px;
-            font-size: 1.1rem;
-            padding: 12px;
+            font-size: 1rem;
+            padding: 12px 18px;
         }
 
         .btn-primary {
             border-radius: 25px;
             background-color: #d81324;
             border: none;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             padding: 12px;
         }
 
@@ -103,11 +97,37 @@
 
         .eye-icon {
             position: absolute;
-            right: 10px;
+            right: 15px;
             top: 50%;
             transform: translateY(-50%);
             cursor: pointer;
             display: none;
+        }
+
+        @media (max-width: 768px) {
+            .login-container {
+                flex-direction: column;
+                max-width: 450px;
+            }
+
+            .left-panel {
+                width: 100%;
+                padding: 30px 20px;
+            }
+
+            .left-panel img {
+                margin-bottom: 15px;
+            }
+
+            .profile-icon {
+                font-size: 50px;
+                margin-bottom: 10px;
+            }
+
+            .right-panel {
+                width: 100%;
+                padding: 30px 20px;
+            }
         }
     </style>
 </head>
@@ -188,9 +208,6 @@
             });
         });
     </script>
-
-    <script src="finisher-header.es5.min.js" type="text/javascript"></script>
-
 </body>
 
 </html>

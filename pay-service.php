@@ -48,9 +48,7 @@ if (isset($_GET['booking_id'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Booking History</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Service Payment - WrenchKing</title>
     <!-- Favicon -->
     <link rel="icon" href="favicon_io/favicon.ico">
 
@@ -59,11 +57,6 @@ if (isset($_GET['booking_id'])) {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@600;700&family=Ubuntu:wght@400;500&display=swap"
         rel="stylesheet">
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to CSS file -->
 
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -77,7 +70,7 @@ if (isset($_GET['booking_id'])) {
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Teeblate Stylesheet -->
+    <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
 </head>
 
@@ -86,58 +79,64 @@ if (isset($_GET['booking_id'])) {
     <?php include './includes/header.php'; ?>
     <!-- Header end -->
 
-    <div class="container mt-4">
-        <h2>Payment Details for Service: <?php echo $booking['s_title']; ?></h2>
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8 col-lg-6">
+                <div class="card shadow-sm border-0 rounded-3 overflow-hidden">
+                    <div class="card-header bg-primary text-white py-3">
+                        <h4 class="mb-0 text-white text-center">Payment Details</h4>
+                        <p class="mb-0 text-white-50 text-center small"><?php echo htmlspecialchars($booking['s_title']); ?></p>
+                    </div>
+                    <div class="card-body p-4">
+                        <!-- UPI QR Code -->
+                        <div class="text-center mb-4">
+                            <h5 class="fw-bold mb-3">Scan & Pay via UPI</h5>
+                            <?php if (!empty($booking['sp_qrcode'])): ?>
+                                <img src="admin/controllers/<?php echo htmlspecialchars($booking['sp_qrcode']); ?>" alt="UPI QR Code"
+                                    class="img-fluid rounded border p-2 mb-2" style="max-width: 250px; width: 100%;" />
+                            <?php else: ?>
+                                <div class="alert alert-warning">QR Code not available for this service center branch.</div>
+                            <?php endif; ?>
+                            <p class="text-muted small mb-0">Bank Account: XYZ Bank &bull; A/C: 1234567890</p>
+                        </div>
 
-        <!-- <p><strong>Service: </strong><?php echo $booking['s_title']; ?></p> -->
+                        <div class="bg-light p-3 rounded text-center mb-4">
+                            <span class="text-muted d-block small text-uppercase fw-semibold">Amount to Pay</span>
+                            <span class="fs-2 fw-bold text-danger">₹<?php echo htmlspecialchars($booking['total_amount']); ?></span>
+                            <div class="text-danger small mt-1">
+                                ⚠️ Please verify the amount carefully before making the payment.
+                            </div>
+                        </div>
 
-        <!-- Display UPI QR Code or Bank Details for payment -->
-        <div class="text-center">
-            <h4>Pay via UPI</h4>
-            <?php if (!empty($booking['sp_qrcode'])): ?>
-                <img src="admin/controllers/<?php echo $booking['sp_qrcode']; ?>" alt="UPI QR Code" width="300px"
-                    class="img-fluid d-block mx-auto" />
-            <?php else: ?>
-                <p class="text-danger">QR Code not available for this branch.</p>
-            <?php endif; ?>
-            <!-- Optional bank details -->
-            <p>Bank Account: XYZ Bank, Account Number: 1234567890</p>
+                        <form action="process-payment.php" method="POST" enctype="multipart/form-data">
+                            <div class="mb-3">
+                                <label for="transaction_id" class="form-label fw-semibold">Transaction ID / UTR <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="transaction_id" name="transaction_id" maxlength="12"
+                                    placeholder="Enter 12-digit UPI / UTR Reference ID" required>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="payment_screenshot" class="form-label fw-semibold">
+                                    Upload Payment Screenshot <span class="text-muted">(Optional)</span>
+                                </label>
+                                <input type="file" class="form-control" id="payment_screenshot" name="payment_screenshot"
+                                    accept="image/*">
+                            </div>
+
+                            <input type="hidden" name="booking_id" value="<?php echo htmlspecialchars($booking['sb_id']); ?>">
+                            <input type="hidden" name="amount" value="<?php echo htmlspecialchars($booking['total_amount']); ?>">
+                            <button type="submit" class="btn btn-success w-100 py-2 fw-semibold">Submit Payment</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <h4>
-            <strong>Amount: </strong>₹<span style="color: red;"><?php echo $booking['total_amount']; ?></span>
-        </h4>
-        <p class="text-danger" style="font-weight: 500;">
-            ⚠️ Please check the amount carefully before making the payment!
-        </p>
-
-
-        <form action="process-payment.php" method="POST" enctype="multipart/form-data">
-            <div class="mb-3">
-                <label for="transaction_id" class="form-label">Transaction ID</label>
-                <input type="text" class="form-control" id="transaction_id" name="transaction_id" maxlength="12"
-                    required>
-            </div>
-
-            <div class="mb-3">
-                <label for="payment_screenshot" class="form-label">
-                    Upload Payment Screenshot <span class="text-muted">(optional)</span>
-                </label>
-                <input type="file" class="form-control" id="payment_screenshot" name="payment_screenshot"
-                    accept="image/*">
-            </div>
-
-            <input type="hidden" name="booking_id" value="<?php echo $booking['sb_id']; ?>">
-            <input type="hidden" name="amount" value="<?php echo $booking['total_amount']; ?>">
-            <button type="submit" class="btn btn-success">Submit Payment</button>
-        </form>
     </div>
     <!-- Footer Start -->
     <?php include './includes/footer.php'; ?>
     <!-- Footer End -->
 
     <!-- JavaScript Libraries -->
-    <script src="js/sparpurchase.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="lib/wow/wow.min.js"></script>

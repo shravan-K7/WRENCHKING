@@ -1,9 +1,9 @@
 <nav class="navbar p-0 fixed-top d-flex flex-row">
     <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
-        <a href="index.php"></a>
+        <a class="navbar-brand brand-logo-mini text-danger fw-bold text-decoration-none fs-4" href="index.php">WK</a>
     </div>
-    <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch justify-content-end">
-        <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+    <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch justify-content-between justify-content-lg-end">
+        <button class="navbar-toggler navbar-toggler align-self-center d-none d-lg-block" type="button" data-toggle="minimize">
             <span class="mdi mdi-menu"></span>
         </button>
 
@@ -49,5 +49,8 @@
                 </div>
             </li>
         </ul>
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+            <span class="mdi mdi-format-line-spacing"></span>
+        </button>
     </div>
 </nav>

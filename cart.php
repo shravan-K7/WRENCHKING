@@ -37,22 +37,15 @@ if (isset($_SESSION['c_id'])) {
     <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@600;700&family=Ubuntu:wght@400;500&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to CSS file -->
-
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
-    <!-- Libraries Stylesheet -->
-    <link href="lib/animate/animate.min.css" rel="stylesheet">
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
-
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
@@ -74,15 +67,16 @@ if (isset($_SESSION['c_id'])) {
 
     <div class="container mt-5">
         <h2 class="text-center">Your Cart<i class="bi bi-cart"></i></h2>
-        <table class="table table-striped mt-4">
+        <div class="table-responsive">
+        <table class="table table-striped mt-4 align-middle text-center">
             <thead style="background-color: #d81324;">
                 <tr>
-                    <td style="color:white;" scope="col">Product</td>
-                    <td style="color:white;" scope="col">Product</td>
-                    <td style="color:white;" scope="col">Price</td>
-                    <td style="color:white;" scope="col">Quantity</td>
-                    <td style="color:white;" scope="col">Total</td>
-                    <td style="color:white;" scope="col">Remove</td>
+                    <th style="color:white;" scope="col" class="text-nowrap">Image</th>
+                    <th style="color:white;" scope="col" class="text-nowrap">Product Name</th>
+                    <th style="color:white;" scope="col" class="text-nowrap">Price</th>
+                    <th style="color:white;" scope="col" class="text-nowrap">Quantity</th>
+                    <th style="color:white;" scope="col" class="text-nowrap">Total</th>
+                    <th style="color:white;" scope="col" class="text-nowrap">Remove</th>
                 </tr>
             </thead>
             <tbody>
@@ -100,48 +94,49 @@ if (isset($_SESSION['c_id'])) {
                         <tr class="text-center align-middle">
                             <td>
                                 <img src="./admin/controllers/<?php echo $product['p_image']; ?>" class="img-thumbnail"
-                                    style="width: 80px; height: 80px;" alt="<?php echo $product['p_name']; ?>">
+                                    style="width: 70px; height: 70px; object-fit: contain;" alt="<?php echo $product['p_name']; ?>">
                             </td>
-                            <td><?php echo $product['p_name'] ?></td>
-                            <td><?php echo $product['p_price'] ?></td>
+                            <td class="fw-semibold"><?php echo $product['p_name'] ?></td>
+                            <td>₹<?php echo $product['p_price'] ?></td>
                             <td>
-                                <?php if ($product['ct_qty'] > 1) { ?>
-                                    <a href="./controllers/cart.php?ct_id=<?php echo $product['ct_id'] ?>&action=Decrement">-</a>
-                                <?php } ?>
-                                <?php echo $product['ct_qty'] ?>
-                                <a href="./controllers/cart.php?ct_id=<?php echo $product['ct_id'] ?>&action=Increment">+</a>
+                                <div class="d-inline-flex align-items-center justify-content-center">
+                                    <?php if ($product['ct_qty'] > 1) { ?>
+                                        <a href="./controllers/cart.php?ct_id=<?php echo $product['ct_id'] ?>&action=Decrement" class="btn btn-sm btn-outline-secondary px-2 py-0 me-2 text-decoration-none">-</a>
+                                    <?php } ?>
+                                    <span class="px-2 fw-bold"><?php echo $product['ct_qty'] ?></span>
+                                    <a href="./controllers/cart.php?ct_id=<?php echo $product['ct_id'] ?>&action=Increment" class="btn btn-sm btn-outline-secondary px-2 py-0 ms-2 text-decoration-none">+</a>
+                                </div>
                             </td>
-                            <td><?php echo $total ?></td>
-                            <td><a href="./controllers/cart.php?ct_id=<?php echo $product['ct_id'] ?>&action=Delete"><i
-                                        class="bi bi-trash fs-4"></i> <!-- fs-4 is slightly bigger than default -->
+                            <td class="fw-bold">₹<?php echo $total ?></td>
+                            <td><a href="./controllers/cart.php?ct_id=<?php echo $product['ct_id'] ?>&action=Delete" class="text-danger" title="Remove item"><i
+                                        class="bi bi-trash fs-5"></i>
                                 </a>
                             </td>
                         </tr>
                     <?php }
                 } else { ?>
                     <tr class="text-center">
-                        <td colspan="6">No products found in cart!</td>
+                        <td colspan="6" class="py-4 text-muted">No products found in cart!</td>
                     </tr>
                 <?php } ?>
             </tbody>
-
         </table>
+        </div>
         <?php
         if ($count > 0) {
             ?>
-            <div class="text-black">
-                <span class="fs-5 mb-0">Total Amount: <?php echo $grandTotal; ?></span>
+            <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center mt-3 p-3 bg-light rounded-3">
+                <span class="fs-4 fw-bold text-dark">Total Amount: <span class="text-danger">₹<?php echo $grandTotal; ?></span></span>
+                <div class="mt-3 mt-sm-0 d-flex gap-2">
+                    <a href="spares.php" class="btn btn-outline-secondary">Continue Shopping</a>
+                    <button class="btn btn-success" onclick="location.href='checkout.php'">Proceed to Checkout</button>
+                </div>
+            </div>
+        <?php } else { ?>
+            <div class="text-center mt-4">
+                <a href="spares.php" class="btn btn-primary">Browse Spare Parts</a>
             </div>
         <?php } ?>
-        <br>
-        <div class="text-center mt-3">
-            <a href="spares.php" class="btn btn-secondary">Continue Shopping</a>
-            <?php
-            if ($count > 0) {
-                ?>
-                <button class="btn btn-success" onclick="location.href='checkout.php'">Proceed to Checkout</button>
-            <?php } ?>
-        </div>
     </div>
 
 

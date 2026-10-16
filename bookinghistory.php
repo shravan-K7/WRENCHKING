@@ -35,8 +35,6 @@ $bookingHistory = $admin->ret("
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Booking History</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Favicon -->
     <link rel="icon" href="favicon_io/favicon.ico">
 
@@ -46,22 +44,15 @@ $bookingHistory = $admin->ret("
     <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@600;700&family=Ubuntu:wght@400;500&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to CSS file -->
-
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
-    <!-- Libraries Stylesheet -->
-    <link href="lib/animate/animate.min.css" rel="stylesheet">
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
-
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
 
     <!-- Teeblate Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
@@ -98,21 +89,22 @@ $bookingHistory = $admin->ret("
                 </div>
                 <div class="container mt-4">
                     <h2 class="mb-4">Bookings History</h2>
-                    <table class="table table-bordered table-striped text-center">
+                    <div class="table-responsive">
+                    <table class="table table-bordered table-striped text-center align-middle">
                         <thead class="table-dark">
                             <tr>
 
                                 <!-- <th class="p-2">Service ID</th> -->
-                                <th class="p-2">Booking Date</th>
-                                <th class="p-2">Service Name</th>
-                                <th class="p-2">Vehicle</th>
-                                <th class="p-2">Allotted Date</th>
-                                <th class="p-2">Allotted Time</th>
-                                <th class="p-2">Worker Details</th>
-                                <th class="p-2">Expected Return</th>
-                                <th class="p-2">Status</th>
-                                <th class="p-2">Invoice</th>
-                                <th class="p-2">Payment</th>
+                                <th class="p-2 text-nowrap">Booking Date</th>
+                                <th class="p-2 text-nowrap">Service Name</th>
+                                <th class="p-2 text-nowrap">Vehicle</th>
+                                <th class="p-2 text-nowrap">Allotted Date</th>
+                                <th class="p-2 text-nowrap">Allotted Time</th>
+                                <th class="p-2 text-nowrap">Worker Details</th>
+                                <th class="p-2 text-nowrap">Expected Return</th>
+                                <th class="p-2 text-nowrap">Status</th>
+                                <th class="p-2 text-nowrap">Invoice</th>
+                                <th class="p-2 text-nowrap">Payment</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -210,6 +202,7 @@ $bookingHistory = $admin->ret("
                             <?php } ?>
                         </tbody>
                     </table>
+                    </div>
 
                     <hr>
 

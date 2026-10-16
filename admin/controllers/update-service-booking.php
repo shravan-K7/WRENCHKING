@@ -1,8 +1,8 @@
 <?php
 include "../../config.php";
-require '../PHPMailer/PHPMailer.php';
-require '../PHPMailer/SMTP.php';
-require '../PHPMailer/Exception.php';
+require '../../PHPMailer/PHPMailer.php';
+require '../../PHPMailer/SMTP.php';
+require '../../PHPMailer/Exception.php';
 use PHPMailer\PHPMailer\PHPMailer;// Include PHPMailer
 
 $admin = new Admin();
@@ -87,14 +87,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $mail = new PHPMailer;
         $mail->isSMTP();
-        $mail->Host = 'smtp.gmail.com'; // replace with your host
+        $mail->Host = SMTP_HOST;
         $mail->SMTPAuth = true;
-        $mail->Username = 'knoxshraone@gmail.com'; // replace with your email
-        $mail->Password = 'sqgi spxk yiot nlrc';     // replace with your password
-        $mail->SMTPSecure = 'tls';
-        $mail->Port = 587;
+        $mail->Username = SMTP_USERNAME;
+        $mail->Password = SMTP_PASSWORD;
+        $mail->SMTPSecure = SMTP_SECURE;
+        $mail->Port = SMTP_PORT;
 
-        $mail->setFrom('knoxshraone@gmail.com', 'WrenchKing');
+        $mail->setFrom(SMTP_FROM_EMAIL, SMTP_FROM_NAME);
         $mail->addAddress($customerEmail, $customerName);
 
         $mail->isHTML(true);
@@ -128,14 +128,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $mail = new PHPMailer;
         $mail->isSMTP();
-        $mail->Host = 'smtp.gmail.com';
+        $mail->Host = SMTP_HOST;
         $mail->SMTPAuth = true;
-        $mail->Username = 'knoxshraone@gmail.com';
-        $mail->Password = 'sqgi spxk yiot nlrc';
-        $mail->SMTPSecure = 'tls';
-        $mail->Port = 587;
+        $mail->Username = SMTP_USERNAME;
+        $mail->Password = SMTP_PASSWORD;
+        $mail->SMTPSecure = SMTP_SECURE;
+        $mail->Port = SMTP_PORT;
 
-        $mail->setFrom('knoxshraone@gmail.com', 'WrenchKing');
+        $mail->setFrom(SMTP_FROM_EMAIL, SMTP_FROM_NAME);
         $mail->addAddress($customerEmail, $customerName);
 
         $mail->isHTML(true);
@@ -166,14 +166,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $mail = new PHPMailer;
         $mail->isSMTP();
-        $mail->Host = 'smtp.gmail.com';
+        $mail->Host = SMTP_HOST;
         $mail->SMTPAuth = true;
-        $mail->Username = 'knoxshraone@gmail.com';
-        $mail->Password = 'sqgi spxk yiot nlrc';
-        $mail->SMTPSecure = 'tls';
-        $mail->Port = 587;
+        $mail->Username = SMTP_USERNAME;
+        $mail->Password = SMTP_PASSWORD;
+        $mail->SMTPSecure = SMTP_SECURE;
+        $mail->Port = SMTP_PORT;
 
-        $mail->setFrom('knoxshraone@gmail.com', 'WrenchKing');
+        $mail->setFrom(SMTP_FROM_EMAIL, SMTP_FROM_NAME);
         $mail->addAddress($customerEmail, $customerName);
 
         $mail->isHTML(true);

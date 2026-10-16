@@ -35,8 +35,14 @@ if (isset($_GET['booking_id'])) {
 <html lang="en">
 
 <head>
-    <title>Generate Invoice</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Invoice - WrenchKing</title>
     <style>
+    * {
+        box-sizing: border-box;
+    }
+
     /* Full screen centering */
     body {
         background-color: #F5F5F5;
@@ -45,12 +51,14 @@ if (isset($_GET['booking_id'])) {
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 100vh;
+        min-height: 100vh;
+        padding: 15px;
     }
 
     /* Centered invoice card with border */
     .invoice-card {
-        width: 500px;
+        max-width: 500px;
+        width: 100%;
         background: white;
         padding: 20px;
         border: 1px solid black;

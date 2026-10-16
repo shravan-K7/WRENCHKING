@@ -4,8 +4,8 @@ include './config.php';
 // session_start();
 
 $admin = new Admin();
-$keyId = "rzp_test_6oiNOELMljBTJY"; // Razorpay test key
-$keySecret = "1POa1CGzwRgelSDxLzbnbOL0"; // Razorpay test secret
+$keyId = RAZORPAY_KEY_ID;
+$keySecret = RAZORPAY_KEY_SECRET;
 
 // Check if customer is logged in
 if (!isset($_SESSION['c_id'])) {
@@ -110,18 +110,9 @@ if (isset($_SESSION['c_id'])) {
     <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@600;700&family=Ubuntu:wght@400;500&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to CSS file -->
-
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-
-    <!-- Libraries Stylesheet -->
-    <link href="lib/animate/animate.min.css" rel="stylesheet">
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -136,23 +127,34 @@ if (isset($_SESSION['c_id'])) {
 
         .checkout-container {
             display: flex;
-            /* height: 100vh; */
+            flex-wrap: wrap;
         }
 
         .form-section {
-            width: 75%;
-            overflow-y: auto;
-            padding: 20px;
+            width: 70%;
+            padding: 25px;
         }
 
         .summary-section {
-            width: 25%;
+            width: 30%;
             background-color: #f8f9fa;
-            padding: 20px;
+            padding: 25px;
             position: sticky;
-            right: 0;
-            top: 0;
-            /* height: 100vh; */
+            top: 80px;
+            align-self: flex-start;
+            border-radius: 8px;
+        }
+
+        @media (max-width: 991.98px) {
+            .checkout-container {
+                flex-direction: column-reverse;
+            }
+            .form-section,
+            .summary-section {
+                width: 100%;
+                position: static;
+                padding: 15px;
+            }
         }
 
         .form-control {

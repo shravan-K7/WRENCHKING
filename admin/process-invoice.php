@@ -109,14 +109,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $mail = new PHPMailer(true);
     try {
         $mail->isSMTP();
-        $mail->Host = 'smtp.gmail.com';
+        $mail->Host = SMTP_HOST;
         $mail->SMTPAuth = true;
-        $mail->Username = 'knoxshraone@gmail.com';
-        $mail->Password = 'sqgi spxk yiot nlrc';
-        $mail->SMTPSecure = 'tls';
-        $mail->Port = 587;
+        $mail->Username = SMTP_USERNAME;
+        $mail->Password = SMTP_PASSWORD;
+        $mail->SMTPSecure = SMTP_SECURE;
+        $mail->Port = SMTP_PORT;
 
-        $mail->setFrom('knoxshraone@gmail.com', 'WrenchKing Garage');
+        $mail->setFrom(SMTP_FROM_EMAIL, 'WrenchKing Garage');
         $mail->addAddress($customer_email);
         $mail->Subject = "Your Service Invoice - WrenchKing";
         $mail->Body = "Dear {$row['c_name']},\n\nPlease find attached your invoice for the recent service.\nTotal Amount: ₹{$total_amount}\n\nThank you for choosing WrenchKing!";

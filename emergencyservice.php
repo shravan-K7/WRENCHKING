@@ -78,16 +78,15 @@ if (isset($_SESSION['c_id'])) {
         <p class="pb-">Reliable & Quick Help When You Need It Most</p>
     </div>
 
-    <div class="d-flex justify-content-end me-2">
-        <div class="justify-content-start"
-            style="margin-top: 10px; margin-right: 830px; padding: 10px; background-color: #fff3cd; border-left: 5px solid #ffd70d; color:#000000;">
-            <strong>Note:</strong> Booking on Sunday is not available.
-        </div>
-        <form method="GET">
-            <div class="d-flex align-items-center">
-                <label for="sp_id" class="form-label text-white m-0 bg-danger px-3 py-3 rounded">Select Service
-                    Provider</label>
-                <select name="sp_id" id="sp_id" class="form-select" style="height: 55px; width: auto;"
+    <div class="container my-3">
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3">
+            <div class="p-2 px-3 rounded shadow-sm"
+                style="background-color: #fff3cd; border-left: 5px solid #ffd70d; color:#000000;">
+                <strong>Note:</strong> Booking on Sunday is not available.
+            </div>
+            <form method="GET" class="d-flex flex-column flex-sm-row align-items-stretch align-items-sm-center gap-2">
+                <label for="sp_id" class="form-label text-white m-0 bg-danger px-3 py-2 rounded text-nowrap text-center">Select Service Provider</label>
+                <select name="sp_id" id="sp_id" class="form-select" style="height: 48px; width: auto; min-width: 200px;"
                     onchange="this.form.submit()">
                     <option hidden>Select Garage</option>
                     <?php
@@ -107,8 +106,8 @@ if (isset($_SESSION['c_id'])) {
                     }
                     ?>
                 </select>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
     <div class="container my-5">
 

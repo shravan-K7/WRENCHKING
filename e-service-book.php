@@ -83,7 +83,7 @@ $service = $getService->fetch(PDO::FETCH_ASSOC);
     <div class="container-fluid my-5 wow fadeInUp" style="background-color:white" data-wow-delay="0.1s">
         <div class="container bg-white d-flex justify-content-center">
             <div class="col-lg-8">
-                <div class="bg-primary h-100 d-flex flex-column justify-content-center text-center p-5 wow zoomIn"
+                <div class="bg-primary h-100 d-flex flex-column justify-content-center text-center p-4 p-md-5 wow zoomIn"
                     data-wow-delay="0.6s">
                     <h1 class="text-white mb-4">Book Emergency Service</h1>
                     <form action="./controllers/booking.php" method="POST">

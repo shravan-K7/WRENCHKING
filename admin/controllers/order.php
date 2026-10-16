@@ -107,14 +107,14 @@ if (isset($_GET["or_id"])) {
         $mail = new PHPMailer(true);
         try {
             $mail->isSMTP();
-            $mail->Host = 'smtp.gmail.com';
+            $mail->Host = SMTP_HOST;
             $mail->SMTPAuth = true;
-            $mail->Username = 'knoxshraone@gmail.com';  // replace with your email
-            $mail->Password = 'sqgi spxk yiot nlrc';   // replace with your password or app-specific password
-            $mail->SMTPSecure = 'tls';
-            $mail->Port = 587;
+            $mail->Username = SMTP_USERNAME;
+            $mail->Password = SMTP_PASSWORD;
+            $mail->SMTPSecure = SMTP_SECURE;
+            $mail->Port = SMTP_PORT;
 
-            $mail->setFrom('knoxshraone@gmail.com', 'WrenchKing');
+            $mail->setFrom(SMTP_FROM_EMAIL, SMTP_FROM_NAME);
             $mail->addAddress($customer_email, $or_name);
 
             $mail->isHTML(true);

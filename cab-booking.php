@@ -27,11 +27,6 @@ if (isset($_SESSION['c_id'])) {
     <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@600;700&family=Ubuntu:wght@400;500&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to CSS file -->
-
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
@@ -57,7 +52,7 @@ if (isset($_SESSION['c_id'])) {
         }
 
         .company-card:hover {
-            transform: scale(1.05);
+            transform: translateY(-5px);
         }
 
         .star-rating {
@@ -67,7 +62,9 @@ if (isset($_SESSION['c_id'])) {
         .company-img {
             width: 100%;
             height: 150px;
-            object-fit: cover;
+            object-fit: contain;
+            padding: 15px;
+            background: #ffffff;
         }
     </style>
 </head>
@@ -82,7 +79,7 @@ if (isset($_SESSION['c_id'])) {
 
     <div class="container mt-5">
         <h2 class="text-center mb-4">Top Cab Booking Services</h2>
-        <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
             <div class="col">
                 <div class="card company-card shadow-sm border-0 h-100">
                     <a href="https://www.olacabs.com/" target="_blank">
@@ -170,7 +167,6 @@ if (isset($_SESSION['c_id'])) {
     <!-- Footer End -->
 
     <!-- JavaScript Libraries -->
-    <script src="js/sparpurchase.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="lib/wow/wow.min.js"></script>

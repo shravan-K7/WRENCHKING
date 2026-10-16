@@ -32,19 +32,9 @@ $selectedSpId = isset($_GET['sp_id']) ? $_GET['sp_id'] : '';
     <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@600;700&family=Ubuntu:wght@400;500&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to CSS file -->
-
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-
-    <!-- Libraries Stylesheet -->
-    <link href="lib/animate/animate.min.css" rel="stylesheet">
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -69,10 +59,9 @@ $selectedSpId = isset($_GET['sp_id']) ? $_GET['sp_id'] : '';
 
         <!-- Select Service Provider Dropdown -->
         <form method="GET">
-            <div class="d-flex justify-content-end my-4">
-                <label for="sp_id" class="form-label text-white m-0 bg-danger px-3 py-3 rounded">Select Service
-                    Provider</label>
-                <select name="sp_id" id="sp_id" class="form-select" style="height: 55px; width: auto;"
+            <div class="d-flex flex-column flex-sm-row justify-content-end align-items-stretch align-items-sm-center gap-2 my-4">
+                <label for="sp_id" class="form-label text-white m-0 bg-danger px-3 py-2 rounded text-center text-nowrap">Select Service Provider</label>
+                <select name="sp_id" id="sp_id" class="form-select" style="height: 48px; width: auto; min-width: 200px;"
                     onchange="this.form.submit()">
                     <option value="">All Providers</option>
                     <?php
@@ -88,7 +77,7 @@ $selectedSpId = isset($_GET['sp_id']) ? $_GET['sp_id'] : '';
 
 
         <!-- Spare Parts List -->
-        <div class="row row-cols-1 row-cols-md-4 g-4 pt-3" id="product-list">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4 pt-3" id="product-list">
             <?php
             $query = "SELECT * FROM `product` INNER JOIN `s_provider` ON s_provider.sp_id=product.sp_id WHERE `p_status`='Available'";
 

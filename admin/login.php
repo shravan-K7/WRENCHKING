@@ -24,8 +24,8 @@
         <div class="container-fluid page-body-wrapper full-page-wrapper">
             <div class="row w-100 m-0">
                 <div class="content-wrapper full-page-wrapper d-flex align-items-center auth login-bg">
-                    <div class="card col-lg-4 mx-auto" style="border-radius: 15px;">
-                        <div class="card-body px-5 py-5">
+                    <div class="card col-12 col-sm-8 col-md-6 col-lg-4 mx-auto" style="border-radius: 15px;">
+                        <div class="card-body px-4 px-sm-5 py-5">
                             <h3 class="card-title text-center mb-3">Service Provider Login</h3>
                             <form method="POST" action="./controllers/auth.php">
                                 <div class="form-group">
@@ -63,7 +63,7 @@
         </div>
         <!-- page-body-wrapper ends -->
     </div>
-    <script src="../../assets/vendors/js/vendor.bundle.base.js"></script>
+    <script src="./assets/vendors/js/vendor.bundle.base.js"></script>
     <script src="./assets/js/off-canvas.js"></script>
     <script src="./assets/js/hoverable-collapse.js"></script>
     <script src="./assets/js/misc.js"></script>

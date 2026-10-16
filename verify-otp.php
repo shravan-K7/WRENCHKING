@@ -46,22 +46,27 @@ if (isset($_POST['verify'])) {
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Verify OTP - WrenchKing</title>
+    <!-- Favicon -->
+    <link rel="icon" href="favicon_io/favicon.ico">
     <!-- Bootstrap 5 CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
     body {
         background-color: #f5f5f5;
-        height: 100vh;
+        min-height: 100vh;
         display: flex;
         justify-content: center;
         align-items: center;
+        padding: 15px;
     }
 
     .card {
         animation: fadeInUp 0.8s ease;
         border-radius: 15px;
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        border: none;
     }
 
     @keyframes fadeInUp {

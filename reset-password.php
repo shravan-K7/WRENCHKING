@@ -8,15 +8,17 @@ $email = $_GET['email'] ?? '';
 
 <head>
     <meta charset="UTF-8">
-    <title>Set New Password</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set New Password - WrenchKing</title>
+    <link rel="icon" href="favicon_io/favicon.ico">
     <!-- Bootstrap CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 </head>
 
 <body class="bg-light">
-    <div class="container d-flex justify-content-center align-items-center vh-100">
-        <div class="card shadow-lg p-4" style="min-width: 350px;">
+    <div class="container d-flex justify-content-center align-items-center min-vh-100 py-4">
+        <div class="card shadow-lg p-4 w-100" style="max-width: 420px; border-radius: 15px; border: none;">
             <h4 class="text-center mb-4">🔒 Set a New Password</h4>
 
             <form action="update-password.php" method="POST" id="passwordResetForm">

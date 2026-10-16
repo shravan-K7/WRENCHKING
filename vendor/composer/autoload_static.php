@@ -16,10 +16,6 @@ class ComposerStaticInitac2d307f4ed514763a8119f3523066bb
         array (
             'WpOrg\\Requests\\' => 15,
         ),
-        'T' => 
-        array (
-            'Twilio\\' => 7,
-        ),
         'S' => 
         array (
             'Svg\\' => 4,
@@ -52,10 +48,6 @@ class ComposerStaticInitac2d307f4ed514763a8119f3523066bb
         'WpOrg\\Requests\\' => 
         array (
             0 => __DIR__ . '/..' . '/rmccue/requests/src',
-        ),
-        'Twilio\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/twilio/sdk/src/Twilio',
         ),
         'Svg\\' => 
         array (

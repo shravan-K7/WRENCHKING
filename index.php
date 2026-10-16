@@ -57,7 +57,7 @@ if (isset($_SESSION['c_id'])) {
         <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="w-75" src="img/car-bg-2.jpg" alt="Image">
+                    <img class="w-100" src="img/car-bg-2.jpg" alt="Image">
                     <div class="carousel-caption d-flex align-items-center">
                         <div class="container">
                             <div class="row align-items-center justify-content-center justify-content-lg-start">
@@ -77,7 +77,7 @@ if (isset($_SESSION['c_id'])) {
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="w-75" src="img/car-bg-1.jpg" alt="Image">
+                    <img class="w-100" src="img/car-bg-1.jpg" alt="Image">
                     <div class="carousel-caption d-flex align-items-center">
                         <div class="container">
                             <div class="row align-items-center justify-content-center justify-content-lg-start">
@@ -98,7 +98,7 @@ if (isset($_SESSION['c_id'])) {
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="w-75" src="img/car-bg-3.jpg" alt="Image">
+                    <img class="w-100" src="img/car-bg-3.jpg" alt="Image">
                     <div class="carousel-caption d-flex align-items-center">
                         <div class="container">
                             <div class="row align-items-center justify-content-center justify-content-lg-start">
@@ -397,8 +397,8 @@ if (isset($_SESSION['c_id'])) {
                         </p>
                     </div>
                 </div>
-                <div class="col-lg-6 d-flex justify-content-end pl-6">
-                    <div class="bg-primary w-100 h-100 d-flex flex-column justify-content-center text-center p-5 wow zoomIn"
+                <div class="col-lg-6 d-flex justify-content-end">
+                    <div class="bg-primary w-100 h-100 d-flex flex-column justify-content-center text-center p-4 p-md-5 wow zoomIn"
                         data-wow-delay="0.6s">
                         <h1 class="text-white mb-4">Book Your Service with Ease</h1>
                         <p class="text-white mb-4">

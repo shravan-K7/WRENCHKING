@@ -12,53 +12,48 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
     <style>
         body {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             background: #F5F5F5;
             margin: 0;
+            padding: 20px 15px;
         }
 
         .register-container {
             display: flex;
-            width: 1000px;
-            height: 600px;
+            width: 100%;
+            max-width: 950px;
+            min-height: 600px;
             background: #fff;
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+            margin: auto;
         }
 
         .left-panel {
             background-color: #d81324;
             color: white;
-            width: 50%;
-            padding: 60px;
+            width: 45%;
+            padding: 40px 30px;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
-            position: relative;
         }
 
         .left-panel img {
-            position: absolute;
-            top: 10px;
-            left: 22%;
-            transform: translateX(-50%);
-            max-width: 160px;
+            max-width: 170px;
             height: auto;
-            max-height: 100px;
+            margin-bottom: 25px;
         }
 
         .right-panel {
-            width: 65%;
-            padding: 60px;
+            width: 55%;
+            padding: 40px 30px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -68,15 +63,15 @@
 
         .form-control {
             border-radius: 25px;
-            font-size: 1.1rem;
-            padding: 12px;
+            font-size: 1rem;
+            padding: 12px 18px;
         }
 
         .btn-primary {
             border-radius: 25px;
             background-color: #d81324;
             border: none;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             padding: 12px;
         }
 
@@ -90,11 +85,28 @@
 
         .right-panel form {
             width: 100%;
-            max-width: 350px;
+            max-width: 380px;
         }
 
-        ::placeholder {
-            color: #000 !important;
+        @media (max-width: 768px) {
+            .register-container {
+                flex-direction: column;
+                max-width: 450px;
+            }
+
+            .left-panel {
+                width: 100%;
+                padding: 30px 20px;
+            }
+
+            .left-panel img {
+                margin-bottom: 15px;
+            }
+
+            .right-panel {
+                width: 100%;
+                padding: 30px 20px;
+            }
         }
     </style>
 </head>
